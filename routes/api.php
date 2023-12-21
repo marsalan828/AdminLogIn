@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\UserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -17,3 +19,8 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::get('reg-user',[UserController::class,'RegisterUser']);
+Route::put('update-user',[UserController::class,'UpdateUser']);
+Route::post('show-user',[UserController::class,'show']);
+Route::post('show-admin',[UserController::class,'showAdmin']);
